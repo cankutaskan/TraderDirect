@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.App", "TraderDirect.App\TraderDirect.App.csproj", "{C77F22EF-369A-4971-A35A-7B7F0A709FAE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFBBB5AA-F64F-40AE-8B23-29EFD3D84E73}
+	EndGlobalSection
+EndGlobal
