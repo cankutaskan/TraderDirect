@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TraderDirect.Domain.Ports.Repositories;
 using TraderDirect.Infrastructure.Databases.TraderDirectDb;
+using TraderDirect.Infrastructure.Repositories;
 
 namespace TraderDirect.Infrastructure.Config;
 public static class InfrastructureConfigHelper
@@ -25,6 +27,6 @@ public static class InfrastructureConfigHelper
 
     public static void ConfigureServices(this IServiceCollection services)
     {
-
+        services.AddScoped<ITradesRepository, TradesRepository>();
     }
 }

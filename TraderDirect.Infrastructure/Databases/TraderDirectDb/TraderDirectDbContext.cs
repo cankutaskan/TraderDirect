@@ -1,13 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TraderDirect.Infrastructure.Databases.TraderDirectDb.Entities;
 
 namespace TraderDirect.Infrastructure.Databases.TraderDirectDb;
 public class TraderDirectDbContext : DbContext
 {
-    public DbSet<Trade> Trades { get; set; }
-    public DbSet<User> Trades { get; set; }
-    public TraderDirectDbContext(DbContextOptions<TraderDirectDbContext> options) : base(options)
-    {
-
-    }
+    public DbSet<TradeEntity> Trades { get; set; }
+    public DbSet<UserEntity> Users { get; set; }
 }
 

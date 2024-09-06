@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Azure;
+using Microsoft.AspNetCore.Mvc;
+using TraderDirect.App.Responses;
+using TraderDirect.Domain.Ports.Contracts;
+using TraderDirect.Domain.Ports.Services;
 
 namespace TraderDirect.App.Controllers
 {
@@ -7,9 +11,13 @@ namespace TraderDirect.App.Controllers
     public class TradesController : ControllerBase
     {
         [HttpGet("user/{userId}")]
-        public async Task<IActionResult> GetByUser(int userId)
+        public async Task<IActionResult> GetByUser(
+          int userId,
+          [FromServices] IGetUserTradesService service,
+          CancellationToken cancellationToken)
         {
-            return Ok();
+            List<ITrade> trades = await service.HandleAsync(userId, cancellationToken);
+            return StatusCode(StatusCodes.Status200OK, new TradesUserResponse(trades));
         }
 
         [HttpGet]

@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  TraderDirectDb:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    ports:
+      - 5434:1433
+    environment:
+        SA_PASSWORD: "root@123"
+        ACCEPT_EULA: "Y"
+        MSSQL_AGENT_ENABLED: "true"
+    volumes:
+        - trader_direct_db_data:/var/opt/mssql/data
+volumes:
+    trader_direct_db_data:
+        driver: local
