@@ -5,6 +5,10 @@ VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.App", "TraderDirect.App\TraderDirect.App.csproj", "{C77F22EF-369A-4971-A35A-7B7F0A709FAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.Domain", "TraderDirect.Domain\TraderDirect.Domain.csproj", "{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.Infrastructure", "TraderDirect.Infrastructure\TraderDirect.Infrastructure.csproj", "{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
