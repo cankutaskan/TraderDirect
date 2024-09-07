@@ -9,7 +9,7 @@ public class GetUserTradesService(ITradesRepository repository) : IGetUserTrades
 
     public async Task<List<ITrade>> HandleAsync(int userId, CancellationToken cancellationToken)
     {
-        return (await _repository.GetUserTrades(userId)).ToList();
+        return (await _repository.GetUserTrades(userId, cancellationToken)).ToList();
     }
 }
 

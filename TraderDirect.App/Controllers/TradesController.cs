@@ -1,6 +1,6 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
-using TraderDirect.App.Responses;
+using TraderDirect.App.ApiModels.Responses;
 using TraderDirect.Domain.Ports.Contracts;
 using TraderDirect.Domain.Ports.Services;
 

@@ -1,6 +1,6 @@
 ﻿using TraderDirect.Domain.Ports.Contracts;
 
-namespace TraderDirect.App.Responses;
+namespace TraderDirect.App.ApiModels.Responses;
 
 public record TradesUserResponse()
 {

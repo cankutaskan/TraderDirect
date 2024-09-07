@@ -2,13 +2,9 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TraderDirect.Domain.Ports.Repositories;
+using System.Collections.Generic;using TraderDirect.Domain.Ports.Repositories;
 using TraderDirect.Infrastructure.Databases.TraderDirectDb;
-using TraderDirect.Infrastructure.Repositories;
+using TraderDirect.Infrastructure.Databases.TraderDirectDb.Repositories;
 
 namespace TraderDirect.Infrastructure.Config;
 public static class InfrastructureConfigHelper
@@ -21,7 +17,7 @@ public static class InfrastructureConfigHelper
 
     public static void ConfigureDbConnectipn(this IServiceCollection services, IConfiguration configuration)
     {
-        string cs = configuration.GetConnectionString("DefaultConnection");
+        string? cs = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<TraderDirectDbContext>(options =>
             options.UseSqlServer(cs));
     }
@@ -29,5 +25,6 @@ public static class InfrastructureConfigHelper
     public static void ConfigureServices(this IServiceCollection services)
     {
         services.AddScoped<ITradesRepository, TradesRepository>();
+        services.AddScoped<IUserRepository, UserRepository>();
     }
 }

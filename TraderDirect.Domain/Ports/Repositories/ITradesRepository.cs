@@ -4,6 +4,6 @@ using TraderDirect.Domain.Ports.Contracts;
 namespace TraderDirect.Domain.Ports.Repositories;
 public interface ITradesRepository
 {
-    Task<IEnumerable<ITrade>> GetUserTrades(int userId);
+    Task<IEnumerable<ITrade>> GetUserTrades(int userId, CancellationToken cancellationToken);
 }
 
