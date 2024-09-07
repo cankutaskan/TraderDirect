@@ -21,8 +21,9 @@ public static class InfrastructureConfigHelper
 
     public static void ConfigureDbConnectipn(this IServiceCollection services, IConfiguration configuration)
     {
+        string cs = configuration.GetConnectionString("DefaultConnection");
         services.AddDbContext<TraderDirectDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("TraderDirect.Infrastructure")));
+            options.UseSqlServer(cs));
     }
 
     public static void ConfigureServices(this IServiceCollection services)

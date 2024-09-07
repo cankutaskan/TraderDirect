@@ -3,13 +3,9 @@ using TraderDirect.Domain.Ports.Repositories;
 using TraderDirect.Domain.Ports.Services;
 
 namespace TraderDirect.Domain.Services;
-public class GetUserTradesService : IGetUserTradesService
+public class GetUserTradesService(ITradesRepository repository) : IGetUserTradesService
 {
-    private readonly ITradesRepository _repository;
-    public GetUserTradesService(ITradesRepository repository)
-    {
-        _repository = repository;
-    }
+    private readonly ITradesRepository _repository = repository;
 
     public async Task<List<ITrade>> HandleAsync(int userId, CancellationToken cancellationToken)
     {
