@@ -3,12 +3,16 @@ using TraderDirect.App.ApiModels.Requests.Validation;
 
 namespace TraderDirect.App.ApiModels.Requests;
 
-public record ExecuteTradesRequest(List<CreateTradeRequest> Trades);
-public record CreateTradeRequest
+public record ExecuteTradesRequest()
 {
+    public List<CreateTradeRequest> Trades { get; set; } = new();
+
     [Range(1, int.MaxValue, ErrorMessage = "UserId must have a value greater than 0.")]
     public int UserId { get; set; }
-
+    
+}
+public record CreateTradeRequest
+{
     [Required(ErrorMessage = "Asset is required.")]
     public required string Asset { get; set; }
 

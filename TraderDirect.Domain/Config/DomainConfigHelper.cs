@@ -9,6 +9,7 @@ public static class DomainConfigHelper
     {
         services.AddScoped<IGetTradesService, GetTradesService>();
         services.AddScoped<ICreateUserService, CreateUserService>();
+        services.AddScoped<IExecuteTradesService, ExecuteTradesService>();
     }
 }
 

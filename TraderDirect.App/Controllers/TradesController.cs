@@ -45,7 +45,7 @@ namespace TraderDirect.App.Controllers
             List<ExecuteTradeServiceRequest> serviceTrades = request.Trades
                 .Select(trade => new ExecuteTradeServiceRequest
                 {
-                    UserId = trade.UserId,
+                    UserId = request.UserId,
                     Asset = trade.Asset,
                     Quantity = trade.Quantity,
                     Price = trade.Price
