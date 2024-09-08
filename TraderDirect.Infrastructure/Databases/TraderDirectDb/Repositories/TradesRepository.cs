@@ -28,5 +28,11 @@ public class TradesRepository(TraderDirectDbContext dbContext) : ITradesReposito
         await _dbContext.Trades.AddRangeAsync(entities, cancellationToken);
         await _dbContext.SaveChangesAsync(cancellationToken);
     }
+
+    public async Task<IEnumerable<ITrade>> GetAllTrades(CancellationToken cancellationToken)
+    {
+        IEnumerable<ITrade> result = await _dbContext.Trades.ToListAsync(cancellationToken);
+        return result;
+    }
 }
 

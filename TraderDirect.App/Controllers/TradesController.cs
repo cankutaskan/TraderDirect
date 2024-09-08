@@ -15,7 +15,7 @@ namespace TraderDirect.App.Controllers
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetByUser(
           int userId,
-          [FromServices] IGetUserTradesService service,
+          [FromServices] IGetTradesService service,
           CancellationToken cancellationToken)
         {
             List<ITrade> trades = await service.HandleAsync(userId, cancellationToken);
@@ -23,9 +23,12 @@ namespace TraderDirect.App.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(
+          [FromServices] IGetTradesService service,
+          CancellationToken cancellationToken)
         {
-            return Ok();
+            List<ITrade> trades = await service.HandleAsync(cancellationToken);
+            return StatusCode(StatusCodes.Status200OK, new TradesUserResponse(trades));
         }
 
         [HttpPost]
