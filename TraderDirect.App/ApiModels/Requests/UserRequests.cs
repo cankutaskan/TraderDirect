@@ -1,4 +1,10 @@
-﻿namespace TraderDirect.App.ApiModels.Requests
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TraderDirect.App.ApiModels.Requests
 {
-    public record CreateUserRequest(string Email);
+    public record CreateUserRequest
+    {
+        [Required(ErrorMessage = "Email is required.")]
+        public required string Email { get; set; }
+    }
 }

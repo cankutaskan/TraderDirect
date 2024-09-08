@@ -16,6 +16,11 @@ namespace TraderDirect.App.Controllers
             [FromServices] ICreateUserService service,
             CancellationToken cancellationToken)
         {
+            if (!ModelState.IsValid)
+            {
+                return ValidationProblem(ModelState);
+            }
+
             int id = await service.HandleAsync(request.Email, cancellationToken);
             return StatusCode(StatusCodes.Status201Created, new { Id = id });
         }

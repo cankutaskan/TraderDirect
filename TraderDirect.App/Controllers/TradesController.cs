@@ -1,6 +1,8 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
+using TraderDirect.App.ApiModels.Requests;
 using TraderDirect.App.ApiModels.Responses;
+using TraderDirect.Domain.Models;
 using TraderDirect.Domain.Ports.Contracts;
 using TraderDirect.Domain.Ports.Services;
 
@@ -24,6 +26,31 @@ namespace TraderDirect.App.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(
+            [FromBody] ExecuteTradesRequest request,
+            [FromServices] IExecuteTradesService service,
+            CancellationToken cancellationToken)
+        {
+            if (!ModelState.IsValid)
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            List<ExecuteTradeServiceRequest> serviceTrades = request.Trades
+                .Select(trade => new ExecuteTradeServiceRequest
+                {
+                    UserId = trade.UserId,
+                    Asset = trade.Asset,
+                    Quantity = trade.Quantity,
+                    Price = trade.Price
+                })
+                .ToList();
+
+            await service.HandleAsync(serviceTrades, cancellationToken);
+            return StatusCode(StatusCodes.Status204NoContent);
         }
     }
 }
