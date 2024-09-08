@@ -1,16 +1,37 @@
 version: '3.8'
 services:
-  TraderDirectDb:
+  traderdirectdb:
     image: mcr.microsoft.com/mssql/server:2022-latest
-    user: root
     ports:
-      - 5434:1433
+      - "5434:1433"  # Exposes SQL Server to the host on port 5434
     environment:
-        SA_PASSWORD: "root@123"
-        ACCEPT_EULA: "Y"
-        MSSQL_AGENT_ENABLED: "true"
+      SA_PASSWORD: "root@123"
+      ACCEPT_EULA: "Y"
+      MSSQL_AGENT_ENABLED: "true"
     volumes:
-        - trader_direct_db_data:/var/opt/mssql/data
+      - trader_direct_db_data:/var/opt/sqlserver/data
+    networks:
+      - trader_direct_network
+
+  traderdirectapp:
+    build:
+      context: .
+      dockerfile: TraderDirect.App/Dockerfile
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ConnectionStrings__DefaultConnection: "Server=traderdirectdb;Database=TraderDirectDb;User Id=sa;Password=root@123;TrustServerCertificate=True;"
+    depends_on:
+      - traderdirectdb
+    networks:
+      - trader_direct_network
+
 volumes:
-    trader_direct_db_data:
-        driver: local
+  trader_direct_db_data:
+    driver: local
+
+networks:
+  trader_direct_network:
+    driver: bridge
