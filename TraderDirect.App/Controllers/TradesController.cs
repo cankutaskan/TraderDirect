@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Json;
 using TraderDirect.App.ApiModels.Requests;
 using TraderDirect.App.ApiModels.Responses;
+using TraderDirect.App.Filters;
 using TraderDirect.Domain.Ports.Contracts;
 using TraderDirect.Domain.Ports.Services;
 using static TraderDirect.Domain.Ports.Repositories.ITradesRepository;
@@ -35,6 +36,7 @@ namespace TraderDirect.App.Controllers
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(UserExistsFilter))]
         public async Task<IActionResult> Post(
             [FromBody] ExecuteTradesRequest request,
             [FromServices] IExecuteTradesService service,

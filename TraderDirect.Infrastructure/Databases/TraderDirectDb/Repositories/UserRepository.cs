@@ -21,5 +21,10 @@ public class UserRepository(TraderDirectDbContext dbContext) : IUserRepository
         await _dbContext.SaveChangesAsync(cancellationToken);
         return entity.Id;
     }
+
+    public async Task<bool> UserExists(int id, CancellationToken cancellationToken)
+    {
+        return await _dbContext.Users.AnyAsync(x => x.Id == id, cancellationToken);
+    }
 }
 

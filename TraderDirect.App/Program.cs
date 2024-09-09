@@ -1,3 +1,4 @@
+using TraderDirect.App.Filters;
 using TraderDirect.Domain.Config;
 using TraderDirect.Infrastructure.Config;
 
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 
 builder.Services.DomainConfig();
 builder.Services.InfrastructureConfig(builder.Configuration);
+
+builder.Services.AddScoped<UserExistsFilter>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

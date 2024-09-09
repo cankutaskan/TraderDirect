@@ -9,5 +9,7 @@ namespace TraderDirect.Domain.Ports.Repositories;
 public interface IUserRepository
 {
     Task<int> CreateUserAsync(string email, CancellationToken cancellationToken);
+
+    Task<bool> UserExists(int id, CancellationToken cancellationToken);
 }
 
