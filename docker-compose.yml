@@ -15,7 +15,6 @@ services:
     networks:
       - trader_direct_network
 
-  # Application service
   traderdirectapp:
     build:
       context: .
@@ -26,13 +25,14 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ConnectionStrings__DefaultConnection: "Server=traderdirectdb;Database=TraderDirectDb;User Id=sa;Password=root@123;TrustServerCertificate=True;"
-      RabbitMq__ConnectionString: "amqp://guest:guest@rabbitmq:5672/"  
+      RabbitMq__ConnectionString: "amqp://guest:guest@rabbitmq:5672/"
     depends_on:
       - traderdirectdb
-      - rabbitmq 
+      - rabbitmq
     networks:
       - trader_direct_network
 
+  # RabbitMQ service
   rabbitmq:
     image: rabbitmq:3-management
     ports:
@@ -41,6 +41,17 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - trader_direct_network
+
+  tradesmessageconsumer:
+    build:
+      context: .
+      dockerfile: TradesMessageConsumer/Dockerfile
+    environment:
+      RabbitMq__ConnectionString: "amqp://guest:guest@rabbitmq:5672/"
+    depends_on:
+      - rabbitmq 
     networks:
       - trader_direct_network
 
