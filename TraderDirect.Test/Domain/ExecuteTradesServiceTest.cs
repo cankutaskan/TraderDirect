@@ -26,8 +26,7 @@ namespace TraderDirect.Test.UnitTests
                 new ExecuteTradeServiceRequest(){ Asset= "1", Price = 1, Quantity = 1, UserId = 1 }
             };
 
-            CancellationToken cancellationToken = new CancellationToken();
-
+            CancellationToken cancellationToken = new();
             _mockTradesRepository
                 .Setup(repo => repo.CreateTrades(It.IsAny<List<ExecuteTradeServiceRequest>>(), It.IsAny<CancellationToken>()))
                 .Returns(Task.CompletedTask);
@@ -35,7 +34,6 @@ namespace TraderDirect.Test.UnitTests
             // Act
             await _executeTradesService.HandleAsync(tradeRequest, cancellationToken);
 
-            // Assert
             // Assert
             _mockTradesRepository.Verify(repo => repo.CreateTrades(
                 It.Is<List<ExecuteTradeServiceRequest>>(list =>
