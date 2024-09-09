@@ -1,6 +1,7 @@
 ﻿using TraderDirect.Domain.Models;
 using TraderDirect.Domain.Ports.Repositories;
 using TraderDirect.Domain.Ports.Services;
+using static TraderDirect.Domain.Ports.Repositories.ITradesRepository;
 
 namespace TraderDirect.Domain.Services;
 public class ExecuteTradesService(ITradesRepository repository) : IExecuteTradesService

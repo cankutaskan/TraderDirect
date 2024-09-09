@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using TraderDirect.App.ApiModels.Requests;
 using TraderDirect.App.ApiModels.Responses;
-using TraderDirect.Domain.Models;
 using TraderDirect.Domain.Ports.Contracts;
 using TraderDirect.Domain.Ports.Services;
+using static TraderDirect.Domain.Ports.Repositories.ITradesRepository;
 
 namespace TraderDirect.App.Controllers
 {

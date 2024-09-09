@@ -1,5 +1,7 @@
 version: '3.8'
+
 services:
+  # SQL Server service
   traderdirectdb:
     image: mcr.microsoft.com/mssql/server:2022-latest
     ports:
@@ -13,6 +15,7 @@ services:
     networks:
       - trader_direct_network
 
+  # Application service
   traderdirectapp:
     build:
       context: .
@@ -23,8 +26,21 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: "Development"
       ConnectionStrings__DefaultConnection: "Server=traderdirectdb;Database=TraderDirectDb;User Id=sa;Password=root@123;TrustServerCertificate=True;"
+      RabbitMq__ConnectionString: "amqp://guest:guest@rabbitmq:5672/"  
     depends_on:
       - traderdirectdb
+      - rabbitmq 
+    networks:
+      - trader_direct_network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"   # RabbitMQ messaging port
+      - "15672:15672" # RabbitMQ management UI port
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
     networks:
       - trader_direct_network
 
