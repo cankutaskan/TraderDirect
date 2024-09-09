@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TraderDirect.Infrastructure
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradesMessageConsumer", "TradesMessageConsumer\TradesMessageConsumer.csproj", "{E884CC2B-064C-4522-9600-3A99CB126239}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.Test", "TraderDirect.Test\TraderDirect.Test.csproj", "{7630D88E-0EA0-45D9-A013-75A5FD900DD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E884CC2B-064C-4522-9600-3A99CB126239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E884CC2B-064C-4522-9600-3A99CB126239}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E884CC2B-064C-4522-9600-3A99CB126239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
