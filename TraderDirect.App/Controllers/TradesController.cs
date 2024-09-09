@@ -1,5 +1,6 @@
 ﻿using Azure;
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
 using TraderDirect.App.ApiModels.Requests;
 using TraderDirect.App.ApiModels.Responses;
 using TraderDirect.Domain.Ports.Contracts;
@@ -10,8 +11,10 @@ namespace TraderDirect.App.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TradesController : ControllerBase
+    public class TradesController(ILogger<TradesController> logger) : ControllerBase
     {
+        private readonly ILogger<TradesController> _logger = logger;
+
         [HttpGet("user/{userId}")]
         public async Task<IActionResult> GetByUser(
           int userId,
@@ -37,6 +40,9 @@ namespace TraderDirect.App.Controllers
             [FromServices] IExecuteTradesService service,
             CancellationToken cancellationToken)
         {
+            string requetsJson = JsonSerializer.Serialize(request);
+            _logger.LogInformation("Request:{0}", requetsJson);
+
             if (!ModelState.IsValid)
             {
                 return ValidationProblem(ModelState);
