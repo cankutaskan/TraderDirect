@@ -14,13 +14,7 @@ public class UserNotExistFilterTest : IClassFixture<CustomWebApplicationFactory<
     public UserNotExistFilterTest(CustomWebApplicationFactory<Program> factory)
     {
         _rabbitMqMock = new Mock<IRabbitMqProvider>();
-        _client = factory.WithWebHostBuilder(builder =>
-        {
-            builder.ConfigureServices(services =>
-            {
-                services.AddSingleton<IRabbitMqProvider>(_rabbitMqMock.Object);
-            });
-        }).CreateClient();
+        _client = factory.CreateClient();
     }
 
     [Fact]
