@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Moq;
+﻿using Moq;
 using static TraderDirect.Domain.Ports.Repositories.ITradesRepository;
 using TraderDirect.Infrastructure.Databases.TraderDirectDb.Repositories;
 using TraderDirect.Infrastructure.Providers;
@@ -7,7 +6,7 @@ using TraderDirect.Infrastructure.Databases.TraderDirectDb;
 using TraderDirect.Infrastructure.Databases.TraderDirectDb.Entities;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace TraderDirect.Test.Domain;
+namespace TraderDirect.Test.UnitTests.Infrastructure.Repository;
 public class TradesRepositoryTest
 {
     private readonly TraderDirectDbContext _dbContext;

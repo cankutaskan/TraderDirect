@@ -1,10 +1,10 @@
 using Moq;
 using TraderDirect.Domain.Ports.Repositories;
 using TraderDirect.Domain.Services;
-using TraderDirect.Infrastructure.Providers;
+
 using static TraderDirect.Domain.Ports.Repositories.ITradesRepository;
 
-namespace TraderDirect.Test.UnitTests
+namespace TraderDirect.Test.UnitTests.Domain
 {
     public class ExecuteTradesServiceTest
     {

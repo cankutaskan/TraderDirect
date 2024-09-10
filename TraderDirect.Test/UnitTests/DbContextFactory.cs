@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TraderDirect.Infrastructure.Databases.TraderDirectDb;
 
-namespace TraderDirect.Test.Domain;
+namespace TraderDirect.Test.UnitTests;
 public static class DbContextFactory
 {
     public static TraderDirectDbContext CreateInMemoryDbContext()
