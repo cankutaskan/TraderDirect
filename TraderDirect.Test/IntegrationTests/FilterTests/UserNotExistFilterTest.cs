@@ -1,14 +1,19 @@
-﻿using System.Net;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Moq;
+using System.Net;
 using System.Net.Http.Json;
 using TraderDirect.App.ApiModels.Requests;
+using TraderDirect.Infrastructure.Providers;
 
 namespace TraderDirect.Test.IntegrationTests;
 public class UserNotExistFilterTest : IClassFixture<CustomWebApplicationFactory<Program>>
 {
     private readonly HttpClient _client;
+    private readonly Mock<IRabbitMqProvider> _rabbitMqMock;
 
     public UserNotExistFilterTest(CustomWebApplicationFactory<Program> factory)
     {
+        _rabbitMqMock = new Mock<IRabbitMqProvider>();
         _client = factory.CreateClient();
     }
 
