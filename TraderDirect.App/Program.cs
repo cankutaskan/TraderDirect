@@ -12,6 +12,7 @@ builder.Services.DomainConfig();
 builder.Services.InfrastructureConfig(builder.Configuration);
 
 builder.Services.AddScoped<UserExistsFilter>();
+builder.Services.AddScoped<UserNotExistFilter>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

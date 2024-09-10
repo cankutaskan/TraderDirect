@@ -3,11 +3,11 @@ using System.Net.Http.Json;
 using TraderDirect.App.ApiModels.Requests;
 
 namespace TraderDirect.Test.IntegrationTests;
-public class UserExistsFilterTest : IClassFixture<CustomWebApplicationFactory<Program>>
+public class UserNotExistFilterTest : IClassFixture<CustomWebApplicationFactory<Program>>
 {
     private readonly HttpClient _client;
 
-    public UserExistsFilterTest(CustomWebApplicationFactory<Program> factory)
+    public UserNotExistFilterTest(CustomWebApplicationFactory<Program> factory)
     {
         _client = factory.CreateClient();
     }

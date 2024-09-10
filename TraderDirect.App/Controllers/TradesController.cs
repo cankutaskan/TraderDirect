@@ -36,7 +36,7 @@ namespace TraderDirect.App.Controllers
         }
 
         [HttpPost]
-        [ServiceFilter(typeof(UserExistsFilter))]
+        [ServiceFilter(typeof(UserNotExistFilter))]
         public async Task<IActionResult> Post(
             [FromBody] ExecuteTradesRequest request,
             [FromServices] IExecuteTradesService service,

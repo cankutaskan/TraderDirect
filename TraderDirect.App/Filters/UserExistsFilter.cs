@@ -1,36 +1,34 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.AspNetCore.Mvc;
 using TraderDirect.App.ApiModels.Requests;
 using TraderDirect.Domain.Ports.Repositories;
-using TraderDirect.Infrastructure.Databases.TraderDirectDb.Repositories;
 
 namespace TraderDirect.App.Filters;
-public class UserExistsFilter : Attribute, IAsyncActionFilter
-{
-    private readonly IUserRepository _userRepository;
-    public UserExistsFilter(IUserRepository userRepository)
+    public class UserExistsFilter : Attribute, IAsyncActionFilter
     {
-        _userRepository = userRepository;
-    }
-
-    public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
-    {
-        if (context.ActionArguments.TryGetValue("request", out var model) && model is ExecuteTradesRequest request)
+        private readonly IUserRepository _userRepository;
+        public UserExistsFilter(IUserRepository userRepository)
         {
-            int userId = request.UserId;
-
-            CancellationToken cancellationToken = context.HttpContext.RequestAborted;
-
-            bool userExists = await _userRepository.UserExists(userId, cancellationToken);
-            if (!userExists)
-            {
-                context.Result = new NotFoundObjectResult($"User with ID {userId} does not exist.");
-                return;
-            }
-
+            _userRepository = userRepository;
         }
 
-        await next();
-    }
-}
+        public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+        {
+            if (context.ActionArguments.TryGetValue("request", out var model) && model is CreateUserRequest request)
+            {
+                string email = request.Email;
 
+                CancellationToken cancellationToken = context.HttpContext.RequestAborted;
+
+                bool userExists = await _userRepository.UserExists(email, cancellationToken);
+                if (userExists)
+                {
+                    context.Result = new ConflictObjectResult($"User with email address {email} already exists.");
+                    return;
+                }
+
+            }
+
+            await next();
+        }
+    }

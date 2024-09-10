@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TraderDirect.App.ApiModels.Requests;
+using TraderDirect.App.Filters;
 using TraderDirect.Domain.Ports.Services;
 
 namespace TraderDirect.App.Controllers
@@ -10,6 +11,7 @@ namespace TraderDirect.App.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        [ServiceFilter(typeof(UserExistsFilter))]
         [HttpPost]
         public async Task<IActionResult> Post(
             [FromBody] CreateUserRequest request,

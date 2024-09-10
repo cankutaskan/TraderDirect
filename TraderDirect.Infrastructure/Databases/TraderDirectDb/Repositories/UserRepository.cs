@@ -26,5 +26,10 @@ public class UserRepository(TraderDirectDbContext dbContext) : IUserRepository
     {
         return await _dbContext.Users.AnyAsync(x => x.Id == id, cancellationToken);
     }
+
+    public async Task<bool> UserExists(string email, CancellationToken cancellationToken)
+    {
+        return await _dbContext.Users.AnyAsync(x => x.Email == email, cancellationToken);
+    }
 }
 
