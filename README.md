@@ -60,6 +60,8 @@ curl -X 'POST' \
 ```
 After the trades are executed, an informational message will be published. To view these messages, you can run the console app either locally or in Docker and check the console output to see the executed trades.
 
+NOTE: You have to run console app manually after building images. Console app will not stay alive.
+
 ![Example Image](./messages.png)
 
 
