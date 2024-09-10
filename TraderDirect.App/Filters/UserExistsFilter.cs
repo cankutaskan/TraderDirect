@@ -20,12 +20,14 @@ public class UserExistsFilter : Attribute, IAsyncActionFilter
             int userId = request.UserId;
 
             CancellationToken cancellationToken = context.HttpContext.RequestAborted;
+
             bool userExists = await _userRepository.UserExists(userId, cancellationToken);
             if (!userExists)
             {
                 context.Result = new NotFoundObjectResult($"User with ID {userId} does not exist.");
                 return;
             }
+
         }
 
         await next();
