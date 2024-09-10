@@ -2,9 +2,9 @@
 
 This is a sample .NET 8 project that demonstrates execution of the user trades. <br>
 
-This repo contains API project built with DDD pattern and a console application servers a message consumer.  <br>
+This repository contains an API project built using the DDD pattern and a console application that serves as a message consumer.  <br>
 
-Solution is completely containerized and can be build with provided commands below.
+The solution is fully containerized and can be built using the provided commands below.
 
 ## Steps
 
