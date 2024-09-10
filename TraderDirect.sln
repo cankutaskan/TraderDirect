@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.App", "TraderDirect.App\TraderDirect.App.csproj", "{C77F22EF-369A-4971-A35A-7B7F0A709FAE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TraderDirect.App", "TraderDirect.App\TraderDirect.App.csproj", "{C77F22EF-369A-4971-A35A-7B7F0A709FAE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TraderDirect.Domain", "TraderDirect.Domain\TraderDirect.Domain.csproj", "{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TraderDirect.Infrastructure", "TraderDirect.Infrastructure\TraderDirect.Infrastructure.csproj", "{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradesMessageConsumer", "TradesMessageConsumer\TradesMessageConsumer.csproj", "{E884CC2B-064C-4522-9600-3A99CB126239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraderDirect.Test", "TraderDirect.Test\TraderDirect.Test.csproj", "{7630D88E-0EA0-45D9-A013-75A5FD900DD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77F22EF-369A-4971-A35A-7B7F0A709FAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB591D2B-5AF6-4DD7-B8CD-E9AA915E3FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F0CBB8C-1C33-45C0-AAB6-890F0DD3ED2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E884CC2B-064C-4522-9600-3A99CB126239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E884CC2B-064C-4522-9600-3A99CB126239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E884CC2B-064C-4522-9600-3A99CB126239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E884CC2B-064C-4522-9600-3A99CB126239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7630D88E-0EA0-45D9-A013-75A5FD900DD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
